@@ -1,7 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Code coverage report for node-npmtest-reactify/reactify/index.js</title>
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-reactify/node_modules/reactify/index.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -194,7 +192,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-reactify">npmtest-reactify (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-reactify/reactify/index.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-reactify/node_modules/reactify/index.js</span></h1>
     <h2>
         
         Statements: <span class="metric">24.14% <small>(7 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-reactify/reactify/</a> &#187; index.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-reactify/node_modules/reactify/</a> » index.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -350,67 +348,68 @@
 var ReactTools = require('react-tools');
 var through    = require('through');
 &nbsp;
-<span class="fstat-no" title="function not covered" >function reactify(filename, options) {</span>
-<span class="cstat-no" title="statement not covered" >  options = options || {};</span>
+<span class="fstat-no" title="function not covered">function reactify(filename, options) {</span>
+<span class="cstat-no" title="statement not covered">  options = options || {};</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var buf = [];</span>
+<span class="cstat-no" title="statement not covered">  var buf = [];</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >  function write(chunk) {</span>
-<span class="cstat-no" title="statement not covered" >    if (!Buffer.isBuffer(chunk)) {</span>
-<span class="cstat-no" title="statement not covered" >      chunk = new Buffer(chunk)</span>
+<span class="fstat-no" title="function not covered">  function write(chunk) {</span>
+<span class="cstat-no" title="statement not covered">    if (!Buffer.isBuffer(chunk)) {</span>
+<span class="cstat-no" title="statement not covered">      chunk = new Buffer(chunk)</span>
     }
-<span class="cstat-no" title="statement not covered" >    return buf.push(chunk)</span>
+<span class="cstat-no" title="statement not covered">    return buf.push(chunk)</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  function compile() {</span>
-<span class="cstat-no" title="statement not covered" >    var source = Buffer.concat(buf).toString();</span>
+<span class="fstat-no" title="function not covered">  function compile() {</span>
+<span class="cstat-no" title="statement not covered">    var source = Buffer.concat(buf).toString();</span>
     // jshint -W040
-<span class="cstat-no" title="statement not covered" >    if (isJSXFile(filename, options)) {</span>
-<span class="cstat-no" title="statement not covered" >      try {</span>
-<span class="cstat-no" title="statement not covered" >        var output = ReactTools.transform(source, {</span>
+<span class="cstat-no" title="statement not covered">    if (isJSXFile(filename, options)) {</span>
+<span class="cstat-no" title="statement not covered">      try {</span>
+<span class="cstat-no" title="statement not covered">        var output = ReactTools.transform(source, {</span>
           es5: options.target === 'es5',
           sourceMap: true,
           sourceFilename: filename,
           stripTypes: options['strip-types'] || options.stripTypes,
           harmony: options.harmony || options.es6
         });
-<span class="cstat-no" title="statement not covered" >        this.queue(output);</span>
+<span class="cstat-no" title="statement not covered">        this.queue(output);</span>
       } catch (error) {
-<span class="cstat-no" title="statement not covered" >        error.name = 'ReactifyError';</span>
-<span class="cstat-no" title="statement not covered" >        error.message = filename + ': ' + error.message;</span>
-<span class="cstat-no" title="statement not covered" >        error.fileName = filename;</span>
-<span class="cstat-no" title="statement not covered" >        this.emit('error', error);</span>
+<span class="cstat-no" title="statement not covered">        error.name = 'ReactifyError';</span>
+<span class="cstat-no" title="statement not covered">        error.message = filename + ': ' + error.message;</span>
+<span class="cstat-no" title="statement not covered">        error.fileName = filename;</span>
+<span class="cstat-no" title="statement not covered">        this.emit('error', error);</span>
       }
     } else {
-<span class="cstat-no" title="statement not covered" >      this.queue(source);</span>
+<span class="cstat-no" title="statement not covered">      this.queue(source);</span>
     }
-<span class="cstat-no" title="statement not covered" >    return this.queue(null);</span>
+<span class="cstat-no" title="statement not covered">    return this.queue(null);</span>
     // jshint +W040
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return through(write, compile);</span>
+<span class="cstat-no" title="statement not covered">  return through(write, compile);</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function isJSXFile(filename, options) {</span>
-<span class="cstat-no" title="statement not covered" >  if (options.everything) {</span>
-<span class="cstat-no" title="statement not covered" >    return true;</span>
+<span class="fstat-no" title="function not covered">function isJSXFile(filename, options) {</span>
+<span class="cstat-no" title="statement not covered">  if (options.everything) {</span>
+<span class="cstat-no" title="statement not covered">    return true;</span>
   } else {
-<span class="cstat-no" title="statement not covered" >    var extensions = ['js', 'jsx']</span>
+<span class="cstat-no" title="statement not covered">    var extensions = ['js', 'jsx']</span>
       .concat(options.extension)
       .concat(options.x)
       .filter(Boolean)
-      .map(<span class="fstat-no" title="function not covered" >function(ext) {</span> <span class="cstat-no" title="statement not covered" >return ext[0] === '.' ? ext.slice(1) : ext }</span>);
-<span class="cstat-no" title="statement not covered" >    return new RegExp('\\.(' + extensions.join('|') + ')$').exec(filename);</span>
+      .map(<span class="fstat-no" title="function not covered">function(ext) {</span> <span class="cstat-no" title="statement not covered">return ext[0] === '.' ? ext.slice(1) : ext }</span>);
+<span class="cstat-no" title="statement not covered">    return new RegExp('\\.(' + extensions.join('|') + ')$').exec(filename);</span>
   }
 }
 &nbsp;
 module.exports = reactify;
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 14:39:59 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 18 2017 20:35:07 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>
